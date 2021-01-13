@@ -114,6 +114,7 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+
 function articleMaker({title, date, firstParagraph, secondParagraph, thirdParagraph}){
   const article = document.createElement("div");
   article.classList.add("article");
@@ -143,6 +144,32 @@ function articleMaker({title, date, firstParagraph, secondParagraph, thirdParagr
 
   return article;
 }
+
+
+//Part 2: Add Articles
+{
+  function addArticle(object){
+    data.push(object);
+  }
+  const newData = {
+    title:'Introduction',
+    date: 'Oct 31th, 2008',
+    firstParagraph: `Commerce on the Internet has come to rely almost exclusively on financial institutions serving as
+    trusted third parties to process electronic payments. While the system works well enough for
+    most transactions, it still suffers from the inherent weaknesses of the trust based model.`,
+    secondParagraph: `Completely non-reversible transactions are not really possible, since financial institutions cannot
+    avoid mediating disputes. The cost of mediation increases transaction costs, limiting the
+    minimum practical transaction size and cutting off the possibility for small casual transactions,
+    and there is a broader cost in the loss of ability to make non-reversible payments for nonreversible services.`,
+    thirdParagraph: `With the possibility of reversal, the need for trust spreads. Merchants must
+    be wary of their customers, hassling them for more information than they would otherwise need.
+    A certain percentage of fraud is accepted as unavoidable. These costs and payment uncertainties
+    can be avoided in person by using physical currency, but no mechanism exists to make payments
+    over a communications channel without a trusted party.`
+  };
+  addArticle(newData);
+}
+
 
 data.forEach(obj => {
   //append function to articles div for each obj in data.
