@@ -102,10 +102,10 @@ const data = [
 
     <span class="expandButton">+</span>
   </div>
-
+  
   Step 2: Still inside `articleMaker`, add an event listener to the span.expandButton.
   This listener should toggle the class 'article-open' on div.article.
-
+  
   Step 3: Don't forget to return something from your function!
 
   Step 4: Outside your function now, loop over the data. At each iteration you'll use your component
@@ -114,3 +114,37 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+function articleMaker({title, date, firstParagraph, secondParagraph, thirdParagraph}){
+  const article = document.createElement("div");
+  article.classList.add("article");
+  const titleDiv = document.createElement("h2");
+  titleDiv.textContent = title;
+  const dateDiv = document.createElement("p");
+  dateDiv.classList.add("date");
+  dateDiv.textContent = date;
+  const p1 = document.createElement("p");
+  p1.textContent = firstParagraph;
+  const p2 = document.createElement("p");
+  p2.textContent = secondParagraph;
+  const p3 = document.createElement("p");
+  p3.textContent = thirdParagraph;
+  const expandButton = document.createElement("span");
+  expandButton.classList.add("expandButton");
+  expandButton.textContent = "+";
+
+  article.appendChild(titleDiv);
+  article.appendChild(dateDiv);
+  article.appendChild(p1);
+  article.appendChild(p2);
+  article.appendChild(p3);
+  article.appendChild(expandButton);
+
+  expandButton.addEventListener("click", event => article.classList.toggle("article-open"));
+
+  return article;
+}
+
+data.forEach(obj => {
+  //append function to articles div for each obj in data.
+  document.querySelector(".articles").appendChild(articleMaker(obj));
+})
