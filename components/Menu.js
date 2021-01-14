@@ -41,7 +41,6 @@ function menuMaker(arg){
   menu.appendChild(uList);
   //Step 2:
   arg.forEach(item => {
-    console.log(item)
     const lItem = document.createElement("li");
     lItem.textContent = item;
     uList.appendChild(lItem);
